@@ -1,14 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Casas en venta 
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click) = "clickFav()">
+        <ion-icon name="heart"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card *ngFor= "let c of casas">
+    <ion-item (click)="clickInfo(c)">
+    <img [src]=c.imagen>
+    <ion-card-header>
+        {{c.lugar}} 
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{c.precio}}</p>
+      
+     </ion-card-content>
+    </ion-item>
+  
+  </ion-card>
 </ion-content>
